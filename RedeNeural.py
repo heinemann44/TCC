@@ -17,8 +17,8 @@ class RedeNeural():
     with tf.name_scope("conv_net"):
         def construir_arquitetura(self, imagens):
             with tf.name_scope("conv_net_conv1"):
-                peso1 = self._criar_variavel("w0",[5, 5, 1, 256])
-                bias1 = self._criar_variavel("b0",[256])
+                peso1 = self._criar_variavel("w0", [5, 5, 1, 256])
+                bias1 = self._criar_variavel("b0", [256])
                 conv1 = RedeConvolucional(peso1, bias1)
                 saida1 = conv1.conv2d(imagens)
                 saida1 = conv1.maxpool2d(saida1, k=2)

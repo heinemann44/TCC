@@ -7,8 +7,6 @@ def avaliar():
     iterator = pegarBatch(config.batch_size)
     imagens, labels = iterator.get_next()
 
-    
-
     cnn = RedeNeural()
 
     logits = cnn.construir_arquitetura(imagens)
@@ -24,7 +22,7 @@ def avaliar():
         sess.run(tf.global_variables_initializer())
         coord = tf.train.Coordinator()
         threads = tf.train.start_queue_runners(coord=coord)
-        saver.restore(sess, '/home/samuelehp04/TCC/Output/model.ckpt')
+        saver.restore(sess, './Output/model.ckpt') # /home/samuelehp04/TCC/Output/model.ckpt
         for batch in range(total_batch):
             acc = sess.run(accuracy)
             avg_acc += acc / total_batch
