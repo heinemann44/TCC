@@ -53,12 +53,12 @@ class Segmentar:
         texto_completo = []
         palavras_linha = []
         palavra = []
-        indexLinha = 0
+        index_linha = 0
 
         for linhas in array_texto:
-            letra_auxiliar = array_texto[indexLinha][0]
+            letra_auxiliar = array_texto[index_linha][0]
             direita_letra = letra_auxiliar[3]
-            indexLinha += 1
+            index_linha += 1
             for letra in linhas:
                 if direita_letra != letra[3]:
                     proximidade = abs(direita_letra - letra[1])
