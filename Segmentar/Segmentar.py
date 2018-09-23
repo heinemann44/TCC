@@ -1,40 +1,132 @@
-from localization import localization
+import cv2 as cv
+import numpy as np
 from skimage.io import imread
 from skimage.filters import threshold_otsu
 from skimage import measure
 from skimage.measure import regionprops
-import cv2 as cv
 
 
 class Segmentar:
 
-    def _converter_para_binario(self, caminho_imagem):
-        imagem = imread("0.png", as_gray=True)
+    def _converter_para_binario(self, imagem):
         imagem_cinza = imagem * 255
         valor_limite = threshold_otsu(imagem_cinza)
         imagem_binario = imagem_cinza > valor_limite
         return imagem_binario
 
+    def _inverter_imagem_binario(self, caminho_imagem):
+        return np.invert(caminho_imagem)
+
+    def _gerar_lista_letras(self, imagem_binaria):
+        cordenadas_letras = []
+        regioes_imagem = measure.label(imagem_binaria)
+        for region in regionprops(regioes_imagem):
+            if region.area < 5:
+                #ignorar regiões pequenas como pontos
+                continue
+            cordenadas_letras.append(region.bbox)
+        return cordenadas_letras
+
+    def _separar_linhas(self, lista_letras):
+        linha = []
+        retorno = []
+        altura_linha = lista_letras[0][0]
+        for letra in lista_letras:
+            diferenca_altura = abs(altura_linha - letra[0])
+            if diferenca_altura < 9:
+                linha.append(letra)
+            else:
+                altura_linha = letra[0]
+                retorno.append(linha)
+                linha = []
+                linha.append(letra)
+        retorno.append(linha)
+        return retorno
+
+    def _ordenar_linhas(self, texto_array):
+        texto_ordenado = []
+        for linha in texto_array:
+            texto_ordenado.append(sorted(linha, key=lambda tup: tup[1]))
+        return texto_ordenado
+
+    def _separar_palavras(self, array_texto):
+        texto_completo = []
+        palavras_linha = []
+        palavra = []
+        indexLinha = 0
+
+        for linhas in array_texto:
+            letra_auxiliar = array_texto[indexLinha][0]
+            direita_letra = letra_auxiliar[3]
+            indexLinha += 1
+            for letra in linhas:
+                if direita_letra != letra[3]:
+                    proximidade = abs(direita_letra - letra[1])
+                    if proximidade < 4:
+                        palavra.append(letra)
+                        direita_letra = letra[3]
+                    else:
+                        palavras_linha.append(palavra)
+                        direita_letra = letra[3]
+                        palavra = []
+                        palavra.append(letra)
+                else:
+                    palavra.append(letra_auxiliar)
+
+            palavras_linha.append(palavra)
+            texto_completo.append(palavras_linha)
+            palavras_linha = []
+            palavra = []
+
+        return texto_completo
+
+    def _salvar_imagem_texto(self, texto_array, caminho_imagem):
+        imagem = imread(caminho_imagem)
+        nome_imagem = 0
+        for linha in texto_array:
+            for palavra in linha:
+                for letra in palavra:
+                    aresta_topo = letra[0]
+                    aresta_esquerda = letra[1]
+                    aresta_base = letra[2]
+                    aresta_direita = letra[3]
+
+                    letra_sem_fundo = imagem[aresta_topo:aresta_base, aresta_esquerda: aresta_direita]
+                    self._salvar_letra(nome="letra", imagem=letra_sem_fundo, caminho_salvar="")
+                    letra_sem_fundo2 = imread("letra.jpg")
+                    letra_com_fundo = self._adicionar_fundo(letra_sem_fundo2)
+                    self._salvar_letra(nome=nome_imagem, imagem=letra_com_fundo)
+
+                    nome_imagem += 1
+                nome_imagem += 10
+            nome_imagem += 100
+
     def _adicionar_fundo(self, imagem):
-        fundo = imread("fundo.png")
+        fundo = imread("fundo.jpg")
         condenada_x = 10
         condenada_y = 10
         fundo[condenada_y:condenada_y + imagem.shape[0], condenada_x:condenada_x + imagem.shape[1]] = imagem
         return fundo
 
-    def extrair_letra(self, caminho_imagem = "0.png", caminho_salvar = "./Letras/"):
+    def _salvar_letra(self, nome, imagem, caminho_salvar="./Letras/"):
+        cv.imwrite(f'{caminho_salvar}{str(nome)}.jpg', imagem)
 
-        imagem = imread(caminho_imagem)
-        imagem_binaria = self._converter_para_binario(caminho_imagem)
-        regioes_imagem = measure.label(imagem_binaria)
+    def segmentar_imagem(self, caminho_imagem="amostra.jpg", inverter_imagem=True):
 
-        nome_imagem = 0
-        for regiao in regionprops(regioes_imagem):
-            nome_imagem += 1
-            if regiao.area > 3:
-                minRow, minCol, maxRow, maxCol = regiao.bbox
-                letra = imagem[minRow:maxRow, minCol: maxCol]
+        imagem = imread(caminho_imagem, as_gray=True)
+        imagem = self._converter_para_binario(imagem)
+        if inverter_imagem:
+            imagem = self._inverter_imagem_binario(imagem)
 
-                letra_com_fundo = self._adicionar_fundo(letra)
-                cv.imwrite(caminho_salvar + str(nome_imagem) + ".png", letra_com_fundo)
+        texto_array = self._gerar_lista_letras(imagem)
+        texto_array = self._separar_linhas(texto_array)
+        texto_array = self._ordenar_linhas(texto_array)
+        texto_array = self._separar_palavras(texto_array)
 
+        self._salvar_imagem_texto(texto_array=texto_array, caminho_imagem=caminho_imagem)
+
+
+if __name__ == "__main__":
+
+    segmentar = Segmentar()
+    segmentar.segmentar_imagem(inverter_imagem=False)
