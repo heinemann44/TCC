@@ -1,17 +1,18 @@
 import tensorflow as tf
 from RedeNeural import RedeNeural
-from Input import pegarBatch, carregarDados
+from Input import pegarBatch
 from Config import config
+
 
 def treinar():
 
-    iterator = pegarBatch(config.batch_size)
+    iterator = pegarBatch(tamanho_batch=config.batch_size, pasta_dados="./Data/Treinar")
     imagens, labels = iterator.get_next()
     tf.summary.image("imagens", imagens, config.batch_size)
     cnn = RedeNeural()
 
     logits = cnn.construir_arquitetura(imagens)
-    custo = cnn.custo(logits,labels)
+    custo = cnn.custo(logits, labels)
     treinamento = cnn.treinar(custo)
     accuracy = cnn.accuracy(logits, labels)
 

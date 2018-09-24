@@ -3,8 +3,9 @@ from Input import pegarBatch
 from Config import config
 from RedeNeural import RedeNeural
 
+
 def avaliar():
-    iterator = pegarBatch(config.batch_size)
+    iterator = pegarBatch(tamanho_batch=config.batch_size, pasta_dados="./Data/Testar")
     imagens, labels = iterator.get_next()
 
     cnn = RedeNeural()
@@ -26,7 +27,7 @@ def avaliar():
         for batch in range(total_batch):
             acc = sess.run(accuracy)
             avg_acc += acc / total_batch
-        print("accuracy: {:.5f}".format(avg_acc))
+        print("Precisao: {:.5f}".format(avg_acc))
         coord.request_stop()
         coord.join(threads)
 

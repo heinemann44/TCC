@@ -1,10 +1,8 @@
-import os
 import tensorflow as tf
-from Config import config
-from Input import pegarBatch
 from RedeConvolucional import RedeConvolucional
+from RedeTotalmenteConectada import RedeTotalmenteConectada
 
-class RedeNeural():
+class RedeNeural:
 
     def __init__(self):
         self._definir_hyperparametros()
@@ -20,40 +18,38 @@ class RedeNeural():
                 peso1 = self._criar_variavel("w0", [5, 5, 1, 256])
                 bias1 = self._criar_variavel("b0", [256])
                 conv1 = RedeConvolucional(peso1, bias1)
-                saida1 = conv1.conv2d(imagens)
-                saida1 = conv1.maxpool2d(saida1, k=2)
+                conv1 = conv1.montar_camada_convolucionar(entrada=imagens)
 
             with tf.name_scope("conv_net_conv2"):
                 peso2 = self._criar_variavel("w1", [5, 5, 256, 256])
                 bias2 = self._criar_variavel("b1", [256])
                 conv2 = RedeConvolucional(peso2, bias2)
-                saida2 = conv2.conv2d(saida1)
-                saida2 = conv2.maxpool2d(saida2, k=2)
+                conv2 = conv2.montar_camada_convolucionar(entrada=conv1)
 
             with tf.name_scope("conv_net_conv3"):
                 peso3 = self._criar_variavel("w2", [5, 5, 256, 128])
                 bias3 = self._criar_variavel("b2", [128])
                 conv3 = RedeConvolucional(peso3, bias3)
-                saida3 = conv3.conv2d(saida2)
-                saida3 = conv3.maxpool2d(saida3, k=2)
+                conv3 = conv3.montar_camada_convolucionar(entrada=conv2)
 
             with tf.name_scope("conv_net_fc1"):
                 peso4 = self._criar_variavel("w3", [4 * 4 * 128, 328])
                 bias4 = self._criar_variavel("b3", [328])
-                fc1 = tf.contrib.layers.flatten(saida3)
-                fc1 = tf.add(tf.matmul(fc1, peso4), bias4)
-                fc1 = tf.nn.relu(fc1)
+                convolucional_flatten = tf.contrib.layers.flatten(conv3)
+                fc1 = RedeTotalmenteConectada(peso4, bias4)
+                fc1 = fc1.montar_camada_convolucionar(convolucional_flatten)
 
             with tf.name_scope("conv_net_fc2"):
                 peso5 = self._criar_variavel("w4", [328, 192])
                 bias5 = self._criar_variavel("b4", [192])
-                fc2 = tf.add(tf.matmul(fc1, peso5), bias5)
-                fc2 = tf.nn.relu(fc2)
+                fc2 = RedeTotalmenteConectada(peso5, bias5)
+                fc2 = fc1.montar_camada_convolucionar(fc2)
 
             with tf.name_scope("conv_net_out"):
                 peso6 = self._criar_variavel("w5", [192, self.num_classes])
                 bias6 = self._criar_variavel("b5", [self.num_classes])
-                saida = tf.add(tf.matmul(fc2, peso6), bias6)
+                fc3 = RedeTotalmenteConectada(peso6, bias6)
+                saida = fc3.camada_densa(fc2)
 
             return saida
 
