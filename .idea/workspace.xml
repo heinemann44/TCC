@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e5f16d22-ed3f-4557-9f1e-2ec685fe3ac6" name="Default" comment="Alteração classe Gerador, adicionado config para gerador">
-      <change afterPath="$PROJECT_DIR$/RedeTotalmenteConectada.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input.py" beforeDir="false" afterPath="$PROJECT_DIR$/Input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RedeConvolucional.py" beforeDir="false" afterPath="$PROJECT_DIR$/RedeConvolucional.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RedeNeural.py" beforeDir="false" afterPath="$PROJECT_DIR$/RedeNeural.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Treinar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Treinar.py" afterDir="false" />
-    </list>
+    <list default="true" id="e5f16d22-ed3f-4557-9f1e-2ec685fe3ac6" name="Default" comment="Refatoração das classes, adicionado classe RedeTotalmenteConectada" />
     <ignored path="venv/" />
     <ignored path=".idea/" />
     <ignored path="Fonts/" />
@@ -33,7 +25,7 @@
     <session id="1851089542">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.9" value="2" />
@@ -53,14 +45,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="8" />
-          <entry key="py" value="2961" />
-          <entry key="txt" value="159" />
+          <entry key="py" value="2966" />
+          <entry key="txt" value="228" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="167" />
-          <entry key="Python" value="2961" />
+          <entry key="PLAIN_TEXT" value="236" />
+          <entry key="Python" value="2966" />
         </counts>
       </usages-collector>
     </session>
@@ -104,7 +96,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RedeNeural.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -116,14 +108,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RedeTotalmenteConectada.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="306">
+              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
               <folding>
-                <marker date="1537747736806" expanded="true" signature="143:149" ph="..." />
-                <marker date="1537747736806" expanded="true" signature="291:339" ph="..." />
+                <marker date="1537747808502" expanded="true" signature="143:149" ph="..." />
+                <marker date="1537747808502" expanded="true" signature="291:339" ph="..." />
               </folding>
             </state>
           </provider>
@@ -141,8 +133,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="33" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="33" />
+            <state>
+              <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -174,8 +166,8 @@
         <option value="$PROJECT_DIR$/Testar.py" />
         <option value="$PROJECT_DIR$/Input.py" />
         <option value="$PROJECT_DIR$/RedeNeural.py" />
-        <option value="$PROJECT_DIR$/RedeTotalmenteConectada.py" />
         <option value="$PROJECT_DIR$/RedeConvolucional.py" />
+        <option value="$PROJECT_DIR$/RedeTotalmenteConectada.py" />
       </list>
     </option>
   </component>
@@ -214,7 +206,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Pylint" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -370,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537743391064</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refatoração das classes, adicionado classe RedeTotalmenteConectada">
+      <created>1537747882531</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1537747882546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -384,7 +383,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.15885022" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -393,7 +391,7 @@
       <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.30322582" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" weight="0.30322582" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49924356" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -437,7 +435,8 @@
     <MESSAGE value="Finalização da classe segmentar" />
     <MESSAGE value="Atualizar git ignore" />
     <MESSAGE value="Alteração classe Gerador, adicionado config para gerador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alteração classe Gerador, adicionado config para gerador" />
+    <MESSAGE value="Refatoração das classes, adicionado classe RedeTotalmenteConectada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refatoração das classes, adicionado classe RedeTotalmenteConectada" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -635,6 +634,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RedeNeural.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="39" column="62" selection-start-line="39" selection-start-column="62" selection-end-line="39" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RedeConvolucional.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -644,28 +653,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="33" />
+        <state>
+          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RedeTotalmenteConectada.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="306">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
           <folding>
-            <marker date="1537747736806" expanded="true" signature="143:149" ph="..." />
-            <marker date="1537747736806" expanded="true" signature="291:339" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RedeNeural.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="39" column="62" selection-start-line="39" selection-start-column="62" selection-end-line="39" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <marker date="1537747808502" expanded="true" signature="143:149" ph="..." />
+            <marker date="1537747808502" expanded="true" signature="291:339" ph="..." />
           </folding>
         </state>
       </provider>
