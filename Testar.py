@@ -1,11 +1,11 @@
 import tensorflow as tf
-from Input import pegarBatch
+from Input import pegar_batch
 from Config import config
 from RedeNeural import RedeNeural
 
 
 def avaliar():
-    iterator = pegarBatch(tamanho_batch=config.batch_size, pasta_dados="./Data/Testar")
+    iterator = pegar_batch(tamanho_batch=config.batch_size, pasta_dados="./Data/Testar")
     imagens, labels = iterator.get_next()
 
     cnn = RedeNeural()

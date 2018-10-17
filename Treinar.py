@@ -1,12 +1,12 @@
 import tensorflow as tf
 from RedeNeural import RedeNeural
-from Input import pegarBatch
+from Input import pegar_batch
 from Config import config
 
 
 def treinar():
 
-    iterator = pegarBatch(tamanho_batch=config.batch_size, pasta_dados="./Data/Treinar")
+    iterator = pegar_batch(tamanho_batch=config.batch_size, pasta_dados="./Data/Treinar")
     imagens, labels = iterator.get_next()
     tf.summary.image("imagens", imagens, config.batch_size)
     cnn = RedeNeural()
