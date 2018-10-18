@@ -3,7 +3,7 @@ import string
 import piexif
 from random import randint
 from PIL import Image, ImageFont, ImageDraw
-from ConfigGerador import argumentos
+from ConfigGerador import argumentos, fontes
 
 
 class Gerador:
@@ -12,12 +12,18 @@ class Gerador:
     tamanho_fonte = argumentos.tamanho_fonte
     dimensao_imagem = (28, 28)
     pasta_imagens = argumentos.pasta
+    lista_fontes = fontes
+
+    def _retornar_fonte_aleatoria(self):
+        id_fonte = randint(1, 55)
+        return self.lista_fontes.get(id_fonte)
 
     def gerar_base_imagens(self):
         linha_texto_gerado = self._gerar_linhas_texto()
-        fonte = ImageFont.truetype(f"{argumentos.caminho}/Fonts/calibril.ttf", self.tamanho_fonte)
         letras = []
         for index, letra in enumerate(linha_texto_gerado):
+            nome_fonte = self._retornar_fonte_aleatoria()
+            fonte = ImageFont.truetype(f"{argumentos.caminho}/Fonts/{nome_fonte}", self.tamanho_fonte)
             self._criar_imagem(letra, fonte, f'{index}.jpg')
             letras.append(f'{index}.jpg, {letra}')
         self._criar_csv(letras)
@@ -32,16 +38,23 @@ class Gerador:
     def _criar_imagem(self, letra, fonte, nome_arquivo):
         img = Image.new('RGB', self.dimensao_imagem, "black")
         draw = ImageDraw.Draw(img)
-        posicao_letra = self._posicao_letra()
+        posicao_letra = self._posicao_letra(fonte, letra)
 
         draw.text(posicao_letra, letra, (255, 255, 255), font=fonte)
         metadado_modelo = self._criar_metadado()
         img.save(f'{argumentos.caminho}/{self.pasta_imagens}/' + nome_arquivo, exif=metadado_modelo)
 
-    def _posicao_letra(self):
-        cordenada_x = randint(30, 56)
-        cordenada_y = randint(30, 52)
-        posicao = ((cordenada_x - self.dimensao_imagem[0]) // 2, (cordenada_y - self.dimensao_imagem[1]) // 2)
+    def _posicao_letra(self, fonte, letra):
+        tamanho_letra = fonte.getsize(letra)
+        menor_coordenada_x_possivel = 1
+        maior_coordenada_x_possivel = ((self.dimensao_imagem[0] - tamanho_letra[0]) - 1)
+        menor_coordenada_y_possivel = 1
+        maior_coordenada_y_possivel = ((self.dimensao_imagem[0] - tamanho_letra[1]) - 1)
+
+        coordenada_x = randint(menor_coordenada_x_possivel, maior_coordenada_x_possivel)
+        coordenada_y = randint(menor_coordenada_y_possivel, maior_coordenada_y_possivel)
+
+        posicao = (coordenada_x, coordenada_y)
         return posicao
 
     def _criar_csv(self, letras):

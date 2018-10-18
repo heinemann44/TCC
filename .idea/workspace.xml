@@ -3,19 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="e5f16d22-ed3f-4557-9f1e-2ec685fe3ac6" name="Default" comment="Adicionar pasta">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Treinar/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConfigGerador.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConfigGerador.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fonts/COMIC.TTF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fonts/COMICBD.TTF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fonts/andlso.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Gerador.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gerador.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Input.py" beforeDir="false" afterPath="$PROJECT_DIR$/Input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Testar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Testar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Treinar.py" beforeDir="false" afterPath="$PROJECT_DIR$/Treinar.py" afterDir="false" />
     </list>
     <ignored path="venv/" />
     <ignored path=".idea/" />
     <ignored path="Fonts/" />
     <ignored path="Pylint/" />
     <manually-removed-from-ignored>
-      <directory path="../TCC 1/.idea/" />
       <directory path="../TCC 1/Fonts/" />
+      <directory path="../TCC 1/.idea/" />
     </manually-removed-from-ignored>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,51 +24,54 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/TCC$fonte.coverage" NAME="fonte Coverage Results" MODIFIED="1539815331419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv" />
     <SUITE FILE_PATH="coverage/TCC$ExtratorMetaData.coverage" NAME="ExtratorMetaData Coverage Results" MODIFIED="1539811944348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MetaData" />
     <SUITE FILE_PATH="coverage/TCC$metadata.coverage" NAME="metadata Coverage Results" MODIFIED="1539810073365" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MetaData" />
-    <SUITE FILE_PATH="coverage/TCC$Gerador.coverage" NAME="Gerador Coverage Results" MODIFIED="1539810183791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TCC$Gerador.coverage" NAME="Gerador Coverage Results" MODIFIED="1539879628698" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/TCC$cca.coverage" NAME="cca Coverage Results" MODIFIED="1537375899800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Segmentador2" />
     <SUITE FILE_PATH="coverage/TCC$Segmentar.coverage" NAME="Segmentar Coverage Results" MODIFIED="1537740126130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Segmentar" />
+    <SUITE FILE_PATH="coverage/TCC$fonte__1_.coverage" NAME="fonte (1) Coverage Results" MODIFIED="1539820406490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1851089542">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
-          <entry key="project.open.time.10" value="2" />
+          <entry key="project.closed" value="11" />
+          <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="png" value="1" />
-          <entry key="py" value="54" />
+          <entry key="py" value="61" />
+          <entry key="ttf" value="2" />
           <entry key="txt" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="1" />
-          <entry key="PLAIN_TEXT" value="11" />
-          <entry key="Python" value="54" />
+          <entry key="PLAIN_TEXT" value="13" />
+          <entry key="Python" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="11" />
-          <entry key="py" value="3819" />
-          <entry key="txt" value="244" />
+          <entry key="py" value="5716" />
+          <entry key="txt" value="283" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="255" />
-          <entry key="Python" value="3819" />
+          <entry key="PLAIN_TEXT" value="294" />
+          <entry key="Python" value="5716" />
         </counts>
       </usages-collector>
     </session>
@@ -76,25 +79,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Treinar.py">
+        <entry file="file://$PROJECT_DIR$/Gerador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state relative-caret-position="248">
+              <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
+                <marker date="1539879628688" expanded="true" signature="431:558" ph="..." />
+                <marker date="1539879628688" expanded="true" signature="2419:2428" ph="..." />
+                <marker date="1539879628688" expanded="true" signature="2579:2588" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Input.py">
+        <entry file="file://$PROJECT_DIR$/ConfigGerador.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+            <state relative-caret-position="208">
+              <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fonte.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding>
-                <element signature="e#0#23#0" expanded="true" />
-                <marker date="1539812884638" expanded="true" signature="2110:2113" ph="..." />
+                <element signature="e#0#32#0" expanded="true" />
+                <marker date="1539820624856" expanded="true" signature="412:443" ph="..." />
               </folding>
             </state>
           </provider>
@@ -124,16 +139,19 @@
         <option value="$PROJECT_DIR$/Segmentador2/cca.py" />
         <option value="$PROJECT_DIR$/Segmentar/Segmentar.py" />
         <option value="$PROJECT_DIR$/Config.py" />
-        <option value="$PROJECT_DIR$/ConfigGerador.py" />
         <option value="$PROJECT_DIR$/Treinar.py" />
         <option value="$PROJECT_DIR$/Testar.py" />
         <option value="$PROJECT_DIR$/RedeNeural.py" />
         <option value="$PROJECT_DIR$/RedeConvolucional.py" />
         <option value="$PROJECT_DIR$/RedeTotalmenteConectada.py" />
         <option value="$PROJECT_DIR$/MetaData/metadata.py" />
-        <option value="$PROJECT_DIR$/Gerador.py" />
         <option value="$PROJECT_DIR$/MetaData/ExtratorMetaData.py" />
         <option value="$PROJECT_DIR$/Input.py" />
+        <option value="$PROJECT_DIR$/../MetaData/ExtratorMetaData.py" />
+        <option value="$PROJECT_DIR$/venv/fonte.py" />
+        <option value="$PROJECT_DIR$/fonte.py" />
+        <option value="$PROJECT_DIR$/ConfigGerador.py" />
+        <option value="$PROJECT_DIR$/Gerador.py" />
       </list>
     </option>
   </component>
@@ -145,7 +163,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="width" value="932" />
+    <option name="width" value="966" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,7 +182,7 @@
             <path>
               <item name="TCC" type="b2602c69:ProjectViewProjectNode" />
               <item name="TCC" type="462c0819:PsiDirectoryNode" />
-              <item name="Output" type="462c0819:PsiDirectoryNode" />
+              <item name="Fonts" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -180,11 +198,12 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Samuel\PycharmProjects\TCC\MetaData" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Samuel\PycharmProjects\TCC\Segmentar\Letras" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Samuel\PycharmProjects\TCC" />
+      <recent name="C:\Users\Samuel\PycharmProjects\TCC\MetaData" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -199,7 +218,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ExtratorMetaData">
+  <component name="RunManager" selected="Python.Gerador">
     <configuration name="ExtratorMetaData" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TCC" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -244,7 +263,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Segmentar" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fonte (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TCC" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -252,12 +271,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Segmentar" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Segmentar/Segmentar.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fonte.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -266,7 +285,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cca" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fonte" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TCC" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -274,12 +293,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Segmentador2" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Segmentador2/cca.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Samuel\PycharmProjects\TCC\fonte.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -312,18 +331,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Gerador" />
-      <item itemvalue="Python.cca" />
-      <item itemvalue="Python.Segmentar" />
       <item itemvalue="Python.metadata" />
       <item itemvalue="Python.ExtratorMetaData" />
+      <item itemvalue="Python.fonte" />
+      <item itemvalue="Python.fonte (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ExtratorMetaData" />
         <item itemvalue="Python.Gerador" />
+        <item itemvalue="Python.fonte (1)" />
+        <item itemvalue="Python.fonte" />
+        <item itemvalue="Python.ExtratorMetaData" />
         <item itemvalue="Python.metadata" />
-        <item itemvalue="Python.Segmentar" />
-        <item itemvalue="Python.cca" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +412,21 @@
       <option name="project" value="LOCAL" />
       <updated>1537748733536</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Adicionado função de metadados">
+      <created>1539814538717</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539814538717</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adicionar pasta">
+      <created>1539814544874</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1539814544874</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -406,16 +439,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-7" y="0" width="966" height="745" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18305598" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27152318" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="0" weight="0.32741934" />
       <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32903227" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.49848714" weight="0.30322582" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.49848714" visible="true" weight="0.30278233" />
       <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49924356" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
@@ -460,6 +494,7 @@
     <MESSAGE value="Atualizar git ignore" />
     <MESSAGE value="Alteração classe Gerador, adicionado config para gerador" />
     <MESSAGE value="Refatoração das classes, adicionado classe RedeTotalmenteConectada" />
+    <MESSAGE value="Adicionado função de metadados" />
     <MESSAGE value="Adicionar pasta" />
     <option name="LAST_COMMIT_MESSAGE" value="Adicionar pasta" />
   </component>
@@ -592,9 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="72" column="41" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -613,31 +645,12 @@
     <entry file="file://$PROJECT_DIR$/MetaData/testethumb.txt" />
     <entry file="file://$PROJECT_DIR$/MetaData/teste123.txt" />
     <entry file="file://$PROJECT_DIR$/MetaData/asd.png" />
-    <entry file="file://$PROJECT_DIR$/MetaData/metadata.py">
+    <entry file="file://$PROJECT_DIR$/MetaData/metadata.py" />
+    <entry file="file://$PROJECT_DIR$/MetaData/ExtratorMetaData.py" />
+    <entry file="file://$PROJECT_DIR$/Input.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gerador.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConfigGerador.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="32" lean-forward="true" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MetaData/ExtratorMetaData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="1" selection-start-line="1" selection-end-line="2" selection-end-column="29" />
+        <state relative-caret-position="323">
+          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
         </state>
       </provider>
     </entry>
@@ -645,19 +658,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../MetaData/ExtratorMetaData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fonts/aldhabi.ttf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Fonts/andlso.ttf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fonte.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
+            <marker date="1539820624856" expanded="true" signature="412:443" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Input.py">
+    <entry file="file://$PROJECT_DIR$/ConfigGerador.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="87" selection-start-line="19" selection-start-column="87" selection-end-line="19" selection-end-column="87" />
+        <state relative-caret-position="208">
+          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gerador.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1539812884638" expanded="true" signature="2110:2113" ph="..." />
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1539879628688" expanded="true" signature="431:558" ph="..." />
+            <marker date="1539879628688" expanded="true" signature="2419:2428" ph="..." />
+            <marker date="1539879628688" expanded="true" signature="2579:2588" ph="..." />
           </folding>
         </state>
       </provider>
