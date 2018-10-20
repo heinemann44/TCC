@@ -8,19 +8,16 @@ from PIL.ExifTags import TAGS
 from numpy import array
 
 
-with tf.name_scope("load_data"):
-    def carregarDados(caminho_dados):
+
+def carregarDados(caminho_dados):
+    with tf.name_scope("load_data"):        
         caminho_csv = os.path.join(caminho_dados, 'Train.csv')
         imagens, texto_imagens, = [], []
         with open(caminho_csv) as arquivoTreino:
             for linha in arquivoTreino:                                                 # Passa no arquivo CSV linha por linha
                 arquivo, texto = linha.strip().split(',')                               # Variável arquivo contem o nome do arquivo, texto contem o texto da imagem
-                if conferir_metadados(arquivo):
-                    texto_imagens.append(_converterPara1Hot(texto))                     # texto_imagens contem um array 1 hot correspondente ao texto de cada imagem
-                    imagens.append(imread(os.path.join(caminho_dados, arquivo)))        # imagens contem um array com todas as imagens
-        # list_images32 = [transform.resize(image, (28, 28)).astype(np.float32).tolist() for image in imagens]
-        # list_images32 = tf.cast(list_images32,tf.float32)
-        # retorno_imagens = np.array(list_images32)
+                texto_imagens.append(_converterPara1Hot(texto))                     # texto_imagens contem um array 1 hot correspondente ao texto de cada imagem
+                imagens.append(imread(os.path.join(caminho_dados, arquivo)))        # imagens contem um array com todas as imagens
         retorno_imagens = np.array(imagens)
 
         return tf.image.rgb_to_grayscale(retorno_imagens), texto_imagens
@@ -32,9 +29,8 @@ def _converterPara1Hot(entrada):
     for i in range(len(values)):
         if entrada == values[i]:
             label = i
-
-    labels = tf.one_hot(label, depth=len(data), dtype=tf.float32)
-    return labels
+            labels = tf.one_hot(label, depth=len(data), dtype=tf.float32)
+            return labels
 
 def _extrair_metadaddos(caminho_imagem):
     imgFile = Image.open(caminho_imagem)
