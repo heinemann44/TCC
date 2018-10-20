@@ -26,7 +26,7 @@ class Gerador:
             nome_fonte = self._retornar_fonte_aleatoria()
             fonte = ImageFont.truetype(f('/usr/local/share/fonts/ms_fonts/{nome_fonte}'), self.tamanho_fonte)
             self._criar_imagem(letra, fonte, f('{index}.jpg'))
-            letras.append(f('{index}.jpg, {letra}'))
+            letras.append(f('{index}.jpg,{letra}'))
         self._criar_csv(letras)
 
     def _gerar_linhas_texto(self):
@@ -47,14 +47,18 @@ class Gerador:
 
     def _posicao_letra(self, fonte, letra):
         tamanho_letra = fonte.getsize(letra)
-        menor_coordenada_x_possivel = 1
-        maior_coordenada_x_possivel = ((self.dimensao_imagem[0] - tamanho_letra[0]) - 1)
-        menor_coordenada_y_possivel = 1
-        maior_coordenada_y_possivel = ((self.dimensao_imagem[0] - tamanho_letra[1]) - 1)
 
-        coordenada_x = randint(menor_coordenada_x_possivel, maior_coordenada_x_possivel)
-        coordenada_y = randint(menor_coordenada_y_possivel, maior_coordenada_y_possivel)
+        try:
+            menor_coordenada_x_possivel = 1
+            maior_coordenada_x_possivel = ((self.dimensao_imagem[0] - tamanho_letra[0]) - 1)
+            menor_coordenada_y_possivel = 1
+            maior_coordenada_y_possivel = ((self.dimensao_imagem[0] - tamanho_letra[1]) - 1)
 
+            coordenada_x = randint(menor_coordenada_x_possivel, maior_coordenada_x_possivel)
+            coordenada_y = randint(menor_coordenada_y_possivel, maior_coordenada_y_possivel)
+        except:
+            coordenada_x = 1
+            coordenada_y = 1
         posicao = (coordenada_x, coordenada_y)
         return posicao
 
