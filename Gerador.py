@@ -1,6 +1,7 @@
 import numpy as np
 import string
 import piexif
+from ww import f
 from random import randint
 from PIL import Image, ImageFont, ImageDraw
 from ConfigGerador import argumentos, fontes
@@ -23,9 +24,9 @@ class Gerador:
         letras = []
         for index, letra in enumerate(linha_texto_gerado):
             nome_fonte = self._retornar_fonte_aleatoria()
-            fonte = ImageFont.truetype(f"{argumentos.caminho}/Fonts/{nome_fonte}", self.tamanho_fonte)
-            self._criar_imagem(letra, fonte, f'{index}.jpg')
-            letras.append(f'{index}.jpg, {letra}')
+            fonte = ImageFont.truetype(f('/usr/local/share/fonts/ms_fonts/{nome_fonte}'), self.tamanho_fonte)
+            self._criar_imagem(letra, fonte, f('{index}.jpg'))
+            letras.append(f('{index}.jpg, {letra}'))
         self._criar_csv(letras)
 
     def _gerar_linhas_texto(self):
@@ -42,7 +43,7 @@ class Gerador:
 
         draw.text(posicao_letra, letra, (255, 255, 255), font=fonte)
         metadado_modelo = self._criar_metadado()
-        img.save(f'{argumentos.caminho}/{self.pasta_imagens}/' + nome_arquivo, exif=metadado_modelo)
+        img.save(f('{argumentos.caminho}/{self.pasta_imagens}/{nome_arquivo}'), exif=metadado_modelo)
 
     def _posicao_letra(self, fonte, letra):
         tamanho_letra = fonte.getsize(letra)
@@ -58,7 +59,7 @@ class Gerador:
         return posicao
 
     def _criar_csv(self, letras):
-        with open(f"{argumentos.caminho}/{self.pasta_imagens}/Train.csv", 'w') as csv:
+        with open(f('{argumentos.caminho}/{self.pasta_imagens}/Train.csv'), 'w') as csv:
             csv.write('\n'.join(letras))
 
     def _criar_metadado(self):
