@@ -4,14 +4,16 @@ flags = tf.app.flags
 
 flags.DEFINE_integer('batch_size', 1, 'tamanho do batch')
 flags.DEFINE_integer('epoch', 2, 'epoch')
-flags.DEFINE_boolean('is_training', True, 'Define se o modelo deve ser treinado ou avaliado')
+flags.DEFINE_boolean('is_training', True, 'Define se o modelo deve ser treinado')
+flags.DEFINE_boolean('letra_cor_preta', True, 'Caso a letra esteja na cor branca essa flag deve ser False')
 flags.DEFINE_integer('num_threads', 1, 'Número de threads para gerenciar os exemplos')
 flags.DEFINE_string('logdir', 'logdir', 'Diretório de logs')
 flags.DEFINE_string('results', 'results', 'caminho para armazenar os resultados')
+flags.DEFINE_string('caminho_imagem_entrada', 'amostra.jpg', 'caminho onde se encontra a imagem de entrada')
 
 config = tf.app.flags.FLAGS
 
-letra =  {0:  '0',
+letras = {0:  '0',
           1:  '1',
           2:  '2',
           3:  '3',

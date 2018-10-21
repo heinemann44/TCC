@@ -1,5 +1,6 @@
 import cv2 as cv
 import numpy as np
+from ww import f
 from skimage.io import imread
 from skimage.filters import threshold_otsu
 from skimage import measure
@@ -83,9 +84,16 @@ class Segmentar:
     def _salvar_imagem_texto(self, texto_array, caminho_imagem):
         imagem = imread(caminho_imagem)
         nome_imagem = 0
+        texto = []
         for linha in texto_array:
+            linhas = []
+            texto.append(linhas)
             for palavra in linha:
+                palavras = []
+                linhas.append(palavras)
                 for letra in palavra:
+                    palavras.append(nome_imagem)
+
                     aresta_topo = letra[0]
                     aresta_esquerda = letra[1]
                     aresta_base = letra[2]
@@ -98,8 +106,8 @@ class Segmentar:
                     self._salvar_letra(nome=nome_imagem, imagem=letra_com_fundo)
 
                     nome_imagem += 1
-                nome_imagem += 10
-            nome_imagem += 100
+
+        return texto
 
     def _adicionar_fundo(self, imagem):
         fundo = imread("fundo.jpg")
@@ -108,8 +116,8 @@ class Segmentar:
         fundo[condenada_y:condenada_y + imagem.shape[0], condenada_x:condenada_x + imagem.shape[1]] = imagem
         return fundo
 
-    def _salvar_letra(self, nome, imagem, caminho_salvar="./Letras/"):
-        cv.imwrite(f'{caminho_salvar}{str(nome)}.jpg', imagem)
+    def _salvar_letra(self, nome, imagem, caminho_salvar="./Data/Letra/"):
+        cv.imwrite(f('{caminho_salvar}{str(nome)}.jpg'), imagem)
 
     def segmentar_imagem(self, caminho_imagem="amostra.jpg", inverter_imagem=True):
 
@@ -123,10 +131,10 @@ class Segmentar:
         texto_array = self._ordenar_linhas(texto_array)
         texto_array = self._separar_palavras(texto_array)
 
-        self._salvar_imagem_texto(texto_array=texto_array, caminho_imagem=caminho_imagem)
+        array_texto = self._salvar_imagem_texto(texto_array=texto_array, caminho_imagem=caminho_imagem)
+        return array_texto
 
 
 if __name__ == "__main__":
 
     segmentar = Segmentar()
-    segmentar.segmentar_imagem(inverter_imagem=False)
