@@ -7,9 +7,11 @@ from skimage.io import imread
 from PIL import Image
 from PIL.ExifTags import TAGS
 from numpy import array
+from natsort import natsorted
 
 
 class Input:
+
 
     def carregar_dados(self, caminho_dados, treinando=config.is_training):
         with tf.name_scope("load_data"):
@@ -25,7 +27,14 @@ class Input:
 
                 return tf.image.rgb_to_grayscale(retorno_imagens), texto_imagens
             else:
-                imagem = imread(caminho_dados)
+                imagem = []    
+                nome_diretorio = natsorted(os.listdir(caminho_dados))
+                                
+                for filename in nome_diretorio:
+                    if 'jpg' in filename:
+                        print(filename)
+                        imagem.append(imread(caminho_dados +'/'+ filename))
+                
                 retorno_imagens = np.array(imagem)
                 return tf.image.rgb_to_grayscale(retorno_imagens)
 
@@ -57,15 +66,15 @@ class Input:
         if treinando:
             dados, labels = self.carregar_dados(caminho_dados=pasta_dados)
             dados = tf.cast(dados, tf.float32)
+            print("shape dados: {}".format(dados.get_shape().as_list()))
             labels = tf.cast(labels, tf.float32)
             dados = tf.data.Dataset.from_tensor_slices(dados)
             labels = tf.data.Dataset.from_tensor_slices(labels)
-
             train_dataset = tf.data.Dataset.zip((dados, labels)).shuffle(5000).repeat().batch(tamanho_batch)
         else:
             dados = self.carregar_dados(caminho_dados=pasta_dados)
             dados = tf.cast(dados, tf.float32)
-            dados = tf.data.Dataset.from_tensor_slices(dados)
-
-            train_dataset = tf.data.Dataset.zip(dados)
+            print("shape dados: {}".format(dados.get_shape().as_list()))
+            train_dataset = tf.data.Dataset.from_tensor_slices(dados).repeat().batch(1)
+        
         return train_dataset.make_initializable_iterator()

@@ -18,32 +18,32 @@ class RedeNeural:
                 peso1 = self._criar_variavel("w0", [5, 5, 1, 256])
                 bias1 = self._criar_variavel("b0", [256])
                 conv1 = RedeConvolucional(peso1, bias1)
-                conv1 = conv1.montar_camada_convolucionar(entrada=imagens)
+                conv1 = conv1.montar_camada_convolucional(entrada=imagens)
 
             with tf.name_scope("conv_net_conv2"):
                 peso2 = self._criar_variavel("w1", [5, 5, 256, 256])
                 bias2 = self._criar_variavel("b1", [256])
                 conv2 = RedeConvolucional(peso2, bias2)
-                conv2 = conv2.montar_camada_convolucionar(entrada=conv1)
+                conv2 = conv2.montar_camada_convolucional(entrada=conv1)
 
             with tf.name_scope("conv_net_conv3"):
                 peso3 = self._criar_variavel("w2", [5, 5, 256, 128])
                 bias3 = self._criar_variavel("b2", [128])
                 conv3 = RedeConvolucional(peso3, bias3)
-                conv3 = conv3.montar_camada_convolucionar(entrada=conv2)
+                conv3 = conv3.montar_camada_convolucional(entrada=conv2)
 
             with tf.name_scope("conv_net_fc1"):
                 peso4 = self._criar_variavel("w3", [4 * 4 * 128, 328])
                 bias4 = self._criar_variavel("b3", [328])
                 convolucional_flatten = tf.contrib.layers.flatten(conv3)
                 fc1 = RedeTotalmenteConectada(peso4, bias4)
-                fc1 = fc1.montar_camada_convolucionar(convolucional_flatten)
+                fc1 = fc1.montar_camada(convolucional_flatten)
 
             with tf.name_scope("conv_net_fc2"):
                 peso5 = self._criar_variavel("w4", [328, 192])
                 bias5 = self._criar_variavel("b4", [192])
                 fc2 = RedeTotalmenteConectada(peso5, bias5)
-                fc2 = fc1.montar_camada_convolucionar(fc2)
+                fc2 = fc2.montar_camada(fc1)
 
             with tf.name_scope("conv_net_out"):
                 peso6 = self._criar_variavel("w5", [192, self.num_classes])

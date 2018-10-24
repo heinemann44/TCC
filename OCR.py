@@ -2,61 +2,77 @@ import tensorflow as tf
 from Input import Input
 from Config import config, letras
 from RedeNeural import RedeNeural
-from Segmentar import segmentar
+from Segmentar import Segmentar
 
 
-class Ocr:
 
-    def ocr(self, caminho_imagem):
-        array_texto = segmentar.segmentar_imagem(caminho_imagem=caminho_imagem, inverter_imagem=config.letra_cor_preta)
-        saida = ''
-
+def ocr(caminho_imagem=config.caminho_imagem_entrada):
+    seg = Segmentar()
+    array_texto = seg.segmentar_imagem(caminho_imagem=caminho_imagem, inverter_imagem=config.letra_cor_preta)
+    texto = ''
+    
+    inp = Input()
+    iterator = inp.pegar_batch(pasta_dados='./Data/Letra/')  
+    imagens = iterator.get_next()
+    print("shape img: {}".format(imagens.get_shape().as_list()))
+    cnn = RedeNeural()
+    logits = cnn.construir_arquitetura(imagens)
+    print("shape logits: {}".format(logits.get_shape().as_list()))
+    letra_predisao = tf.argmax(logits, 1)
+    
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        sess.run(iterator.initializer)
+        saver = tf.train.Saver()
+        saver.restore(sess, './Output/model.ckpt')
         for linha in array_texto:
             for palavra in linha:
                 for letra in palavra:
-                    predicao_letra = self._ativar_rede_neural('.Data/Letra/'+ letra)
-                    saida += str(predicao_letra)
-                saida += ' '
-            saida += '\n'
+                    saida = sess.run(letra_predisao)
+                    fodase_letra = retornar_letra(saida[0])
+                    print('letra: '+ str(type(fodase_letra)))
+                    print('saida: '+ str(type(saida)))
+                    texto += fodase_letra
+                texto += ' '
+            texto += '\n'
+   
+    _criar_arquivo_text(texto)
 
-        predicao_letra = self._retornar_letra(saida)
+def _criar_arquivo_text(texto):
+    arquivo = open('saida.txt', 'w+')
+    arquivo.write(texto)
+    arquivo.close()
 
-        self._criar_arquivo_text(predicao_letra)
+def _ativar_rede_neural(caminho_letra):
+    inp = Input()
+    iterator = inp.pegar_batch(pasta_dados='./Data/Letra/0.jpg')
+    
 
-    def _criar_arquivo_text(self, texto):
-        arquivo = open('saida.txt', 'w+')
-        arquivo.write(texto)
-        arquivo.close()
+    imagens = iterator.get_next()
+    print("shape img: {}".format(imagens.get_shape().as_list()))
 
-    def _ativar_rede_neural(self, caminho_letra):
-        iterator = Input.pegar_batch(pasta_dados=caminho_letra)
+    cnn = RedeNeural()
 
-        imagens = iterator.get_next()
+    logits = cnn.construir_arquitetura(imagens)
+    print("shape logits: {}".format(logits.get_shape().as_list()))
+    letra = tf.argmax(logits, 1)
 
-        cnn = RedeNeural()
 
-        logits = cnn.construir_arquitetura(imagens)
-        letra = self._retornar_letra(logits)
+    with tf.Session() as sess:
+        tf.reset_default_graph()
+        sess.run(tf.global_variables_initializer())
+        sess.run(iterator.initializer)
+        saver = tf.train.Saver()
+        saver.restore(sess, './Output/model.ckpt')
+        saida = sess.run(letra)
+        saida = retornar_letra(saida)
+        return saida
 
-        with tf.Session() as sess:
-            sess.run(tf.global_variables_initializer())
-            sess.run(iterator.initializer)
-            saver = tf.train.Saver()
-            saver.restore(sess, './Output/model.ckpt')
-            saida = sess.run(letra)
-            return saida
+def retornar_letra(id_letra):
+    return letras.get(id_letra)
 
-    def _decode_one_hot(self, one_hot):
-        index = tf.argmax(one_hot, 1)
-        return index
-
-    def _retornar_letra(self, one_hot):
-        lista_letras = letras
-        index_letra = self._decode_one_hot(one_hot)
-        return lista_letras.get(index_letra)
-
+def main(argv=None):
+    ocr()
 
 if __name__ == "__main__":
-        tf.app.run()
-        ocr = Ocr()
-        ocr.ocr()
+    tf.app.run()

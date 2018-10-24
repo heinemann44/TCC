@@ -15,7 +15,7 @@ class RedeConvolucional:
     def maxpool2d(self, inputs, k=2):
         return tf.nn.max_pool(inputs, ksize=[1, k, k, 1], strides=[1, k, k, 1],padding='SAME')
 
-    def montar_camada_convolucionar(self, entrada):
+    def montar_camada_convolucional(self, entrada):
         conv = self.conv2d(entrada)
         saida = self.maxpool2d(conv, k=2)
         return saida

@@ -5,8 +5,11 @@ from RedeNeural import RedeNeural
 
 
 def avaliar():
-    iterator = Input.pegar_batch(tamanho_batch=config.batch_size, pasta_dados="./Data/Testar")
+    inp = Input()
+    iterator = inp.pegar_batch(tamanho_batch=config.batch_size, pasta_dados="./Data/Testar")
     imagens, labels = iterator.get_next()
+    
+    print("shape img: {}".format(imagens.get_shape().as_list()))
 
     cnn = RedeNeural()
 

@@ -13,7 +13,7 @@ class RedeTotalmenteConectada:
     def funcao_ativacao(self, camada_entrada):
         return tf.nn.relu(camada_entrada)
 
-    def montar_camada_convolucionar(self, entrada):
+    def montar_camada(self, entrada):
         fc = self.camada_densa(entrada)
         saida = self.funcao_ativacao(fc)
         return saida
