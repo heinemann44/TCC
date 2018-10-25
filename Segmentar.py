@@ -131,8 +131,8 @@ class Segmentar:
         texto_array = self._ordenar_linhas(texto_array)
         texto_array = self._separar_palavras(texto_array)
 
-        array_texto = self._salvar_imagem_texto(texto_array=texto_array, caminho_imagem=caminho_imagem)
-        return array_texto
+        texto = self._salvar_imagem_texto(texto_array=texto_array, caminho_imagem=caminho_imagem)
+        return texto
 
 
 if __name__ == "__main__":
