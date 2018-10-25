@@ -5,7 +5,6 @@ from RedeNeural import RedeNeural
 from Segmentar import Segmentar
 
 
-
 def ocr(caminho_imagem=config.caminho_imagem_entrada):
     seg = Segmentar()
     array_texto = seg.segmentar_imagem(caminho_imagem=caminho_imagem, inverter_imagem=config.letra_cor_preta)
@@ -14,11 +13,10 @@ def ocr(caminho_imagem=config.caminho_imagem_entrada):
     inp = Input()
     iterator = inp.pegar_batch(pasta_dados='./Data/Letra/')  
     imagens = iterator.get_next()
-    print("shape img: {}".format(imagens.get_shape().as_list()))
+
     cnn = RedeNeural()
     logits = cnn.construir_arquitetura(imagens)
-    print("shape logits: {}".format(logits.get_shape().as_list()))
-    letra_predisao = tf.argmax(logits, 1)
+    id_letra = _decode_one_hot(logits)
     
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
@@ -27,16 +25,17 @@ def ocr(caminho_imagem=config.caminho_imagem_entrada):
         saver.restore(sess, './Output/model.ckpt')
         for linha in array_texto:
             for palavra in linha:
-                for letra in palavra:
-                    saida = sess.run(letra_predisao)
-                    fodase_letra = retornar_letra(saida[0])
-                    print('letra: '+ str(type(fodase_letra)))
-                    print('saida: '+ str(type(saida)))
-                    texto += fodase_letra
+                for _ in palavra:
+                    saida = sess.run(id_letra)
+                    letra_predicao = retornar_letra(saida[0])
+                    texto += letra_predicao
                 texto += ' '
             texto += '\n'
    
     _criar_arquivo_text(texto)
+
+def _decode_one_hot(one_hot):
+    return tf.argmax(one_hot, 1)
 
 def _criar_arquivo_text(texto):
     arquivo = open('saida.txt', 'w+')
