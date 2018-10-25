@@ -7,7 +7,8 @@ from Segmentar import Segmentar
 
 def ocr(caminho_imagem=config.caminho_imagem_entrada):
     seg = Segmentar()
-    array_texto = seg.segmentar_imagem(caminho_imagem=caminho_imagem, inverter_imagem=config.letra_cor_preta)
+    array_texto = seg.segmentar_imagem(caminho_imagem=caminho_imagem, 
+                                       inverter_imagem=config.letra_cor_preta)
     texto = ''
     
     inp = Input()
