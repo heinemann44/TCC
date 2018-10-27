@@ -62,11 +62,13 @@ class Input:
             else:
                 return False
 
-    def pegar_batch(self, pasta_dados, tamanho_batch=config.batch_size, treinando=config.is_training):
+    def pegar_batch(self, 
+                    pasta_dados, 
+                    tamanho_batch=config.batch_size, 
+                    treinando=config.is_training):
         if treinando:
             dados, labels = self.carregar_dados(caminho_dados=pasta_dados)
             dados = tf.cast(dados, tf.float32)
-            print("shape dados: {}".format(dados.get_shape().as_list()))
             labels = tf.cast(labels, tf.float32)
             dados = tf.data.Dataset.from_tensor_slices(dados)
             labels = tf.data.Dataset.from_tensor_slices(labels)
