@@ -72,11 +72,11 @@ class Input:
             labels = tf.cast(labels, tf.float32)
             dados = tf.data.Dataset.from_tensor_slices(dados)
             labels = tf.data.Dataset.from_tensor_slices(labels)
-            train_dataset = tf.data.Dataset.zip((dados, labels)).shuffle(5000).repeat().batch(tamanho_batch)
+            train_dataset = tf.data.Dataset.zip((dados, labels))
+                              .shuffle(5000).repeat().batch(tamanho_batch)
         else:
             dados = self.carregar_dados(caminho_dados=pasta_dados)
             dados = tf.cast(dados, tf.float32)
-            print("shape dados: {}".format(dados.get_shape().as_list()))
             train_dataset = tf.data.Dataset.from_tensor_slices(dados).repeat().batch(1)
         
         return train_dataset.make_initializable_iterator()
