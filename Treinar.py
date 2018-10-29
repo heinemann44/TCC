@@ -22,7 +22,7 @@ def treinar():
         saver = tf.train.Saver()
         summary_writer = tf.summary.FileWriter('Output/treinamento', sess.graph)
         total_batch = 10000//config.batch_size
-        print("epoch " + str(config.epoch))
+        print("Epoca: " + str(config.epoch))
         count = 0
         for i in range(config.epoch):
             avg_cost = 0.
@@ -35,11 +35,11 @@ def treinar():
                 loss, acc = sess.run([custo, accuracy])
                 avg_cost += loss / total_batch
                 avg_acc += acc / total_batch
-            print("Iter " + str(i) + ", Loss= " + \
-                  "{:.6f}".format(avg_cost) + ", Training Accuracy= " + \
+            print("Iter " + str(i) + ", Perda= " + \
+                  "{:.6f}".format(avg_cost) + ", Precisão= " + \
                   "{:.5f}".format(avg_acc))
         save_path= saver.save(sess, "Output/model.ckpt")
-        print("Model saved in path: %s" % save_path)
+        print("Modelo salvo em: %s" % save_path)
 
 def main(argv=None):
     treinar()
