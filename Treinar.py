@@ -5,8 +5,8 @@ from Config import config
 
 
 def treinar():
-
-    iterator = Input.pegar_batch(tamanho_batch=config.batch_size, pasta_dados="./Data/Treinar")
+    iterator = Input.pegar_batch(tamanho_batch=config.batch_size, 
+                                 pasta_dados="./Data/Treinar")
     imagens, labels = iterator.get_next()
     tf.summary.image("imagens", imagens, config.batch_size)
     cnn = RedeNeural()
@@ -20,7 +20,8 @@ def treinar():
         sess.run(tf.global_variables_initializer())
         sess.run(iterator.initializer)
         saver = tf.train.Saver()
-        summary_writer = tf.summary.FileWriter('Output/treinamento', sess.graph)
+        summary_writer = tf.summary.FileWriter('Output/treinamento', 
+                                               sess.graph)
         total_batch = 10000//config.batch_size
         print("Epoca: " + str(config.epoch))
         count = 0
