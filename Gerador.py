@@ -14,6 +14,7 @@ class Gerador:
     dimensao_imagem = (28, 28)
     pasta_imagens = argumentos.pasta
     lista_fontes = fontes
+    caminho_fontes = '/usr/local/share/fonts/ms_fonts/'
 
     def _retornar_fonte_aleatoria(self):
         id_fonte = randint(1, 55)
@@ -24,7 +25,8 @@ class Gerador:
         letras = []
         for index, letra in enumerate(linha_texto_gerado):
             nome_fonte = self._retornar_fonte_aleatoria()
-            fonte = ImageFont.truetype(f('/usr/local/share/fonts/ms_fonts/{nome_fonte}'), self.tamanho_fonte)
+            fonte = ImageFont.truetype(f('{caminho_fontes}{nome_fonte}'), 
+                                           self.tamanho_fonte)
             self._criar_imagem(letra, fonte, f('{index}.jpg'))
             letras.append(f('{index}.jpg,{letra}'))
         self._criar_csv(letras)
